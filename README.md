@@ -4,6 +4,20 @@ Soccer Intelligence Platform is a full-stack web application for viewing soccer 
 
 The project combines real soccer data with an interactive Demo Lab where users can explore a simulated 11 vs 11 match with player movement, events, and live statistics.
 
+## Screenshots
+
+### Home
+![Home](screenshots/homepage.png)
+
+### Demo Lab
+![Demo Lab](screenshots/demo-lab.png)
+
+### Match Analytics
+![Match Analytics](screenshots/analytics.png)
+
+### Monitoring
+![Grafana Dashboard](screenshots/grafana.png)
+
 ## Features
 
 - Live and upcoming matches
