@@ -1,0 +1,19 @@
+{$PUBLIC_DOMAIN} {
+  encode zstd gzip
+
+  @api path /api/*
+  reverse_proxy @api backend:8000
+
+  @health path /health
+  reverse_proxy @health backend:8000
+
+  reverse_proxy frontend:80
+
+  header {
+    Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    X-Content-Type-Options "nosniff"
+    X-Frame-Options "DENY"
+    Referrer-Policy "strict-origin-when-cross-origin"
+    Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' https: data:; connect-src 'self' https: wss:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
+  }
+}

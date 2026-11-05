@@ -1,0 +1,20 @@
+{
+  "annotations":{"list":[]},
+  "editable":true,
+  "graphTooltip":1,
+  "panels":[
+    {"type":"stat","title":"Requests / sec","gridPos":{"h":7,"w":8,"x":0,"y":0},"targets":[{"expr":"sum(rate(soccer_http_requests_total[1m]))","legendFormat":"rps"}],"fieldConfig":{"defaults":{"unit":"reqps"}}},
+    {"type":"stat","title":"P95 API latency","gridPos":{"h":7,"w":8,"x":8,"y":0},"targets":[{"expr":"histogram_quantile(0.95, sum(rate(soccer_http_request_duration_seconds_bucket[5m])) by (le))","legendFormat":"p95"}],"fieldConfig":{"defaults":{"unit":"s"}}},
+    {"type":"stat","title":"5xx rate","gridPos":{"h":7,"w":8,"x":16,"y":0},"targets":[{"expr":"sum(rate(soccer_http_requests_total{status=~\"5..\"}[5m]))","legendFormat":"5xx/s"}],"fieldConfig":{"defaults":{"unit":"reqps"}}},
+    {"type":"timeseries","title":"Requests by endpoint","gridPos":{"h":10,"w":12,"x":0,"y":7},"targets":[{"expr":"sum(rate(soccer_http_requests_total[1m])) by (path)","legendFormat":"{{path}}"}]},
+    {"type":"timeseries","title":"P95 latency by endpoint","gridPos":{"h":10,"w":12,"x":12,"y":7},"targets":[{"expr":"histogram_quantile(0.95, sum(rate(soccer_http_request_duration_seconds_bucket[5m])) by (le,path))","legendFormat":"{{path}}"}]}
+  ],
+  "schemaVersion":39,
+  "tags":["soccer","fastapi","portfolio"],
+  "templating":{"list":[]},
+  "time":{"from":"now-30m","to":"now"},
+  "timezone":"browser",
+  "title":"Soccer Intelligence API",
+  "uid":"soccer-intelligence-api",
+  "version":1
+}

@@ -1,0 +1,10 @@
+apiVersion: 1
+providers:
+  - name: Soccer Intelligence
+    orgId: 1
+    folder: Soccer Intelligence
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 10
+    options:
+      path: /etc/grafana/dashboards
