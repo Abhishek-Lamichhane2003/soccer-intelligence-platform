@@ -63,10 +63,10 @@ def analyst_summary(match: dict, probabilities: dict) -> dict:
         detail = f'At minute {minute}, the draw remains meaningful because the score is tied and time is decreasing.'
     elif sh > sa:
         headline = f'{home} lead {sh}-{sa}.'
-        detail = f'The home win probability rises as the lead is protected deeper into the match; the remaining-time factor is now lower.'
+        detail = 'The home win probability rises as the lead is protected deeper into the match; the remaining-time factor is now lower.'
     else:
         headline = f'{away} lead {sa}-{sh}.'
-        detail = f'The away win probability rises because the visitors hold the score advantage with fewer minutes remaining.'
+        detail = 'The away win probability rises because the visitors hold the score advantage with fewer minutes remaining.'
 
     return {
         'headline': headline,

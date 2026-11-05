@@ -11,7 +11,7 @@ os.environ['REDIS_URL'] = 'redis://localhost:6379/15'
 os.environ['FOOTBALL_DATA_API_KEY'] = ''
 os.environ['JWT_SECRET'] = 'test-secret-that-is-long-enough-for-tests-only'
 
-import pytest
+import pytest  # noqa: E402
 
 from app.core.config import settings  # noqa: E402
 from app.db.base import Base  # noqa: E402

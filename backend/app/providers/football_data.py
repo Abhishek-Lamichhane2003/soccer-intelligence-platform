@@ -7,7 +7,7 @@ import asyncio
 import httpx
 
 from app.core.config import settings
-from app.services.provider_quota import ProviderQuotaExceeded, provider_quota
+from app.services.provider_quota import provider_quota
 
 
 class ProviderConfigurationError(RuntimeError):
